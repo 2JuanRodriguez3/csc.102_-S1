@@ -1,0 +1,124 @@
+
+<!-- Juan Rodriguez, October 16th, 2024 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Input Validation</title>
+<!-- This style tag is an embedded css style -->
+<style>
+    /* this is the styling for the body */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #84c6ff; /* light blue background */
+        color: #333; /* dark text color */
+        margin: 0;
+        padding: 20px;
+    }
+
+    /* the styling for the forms */
+    form {
+        background-color: #fd743e; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; /* adds rounded corners */
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* adds a shadow */
+        max-width: 400px;
+        margin: auto; 
+    }
+
+    /* the styling for input */
+    input[type="text"] {
+        width: 100%; 
+        padding: 10px; /* padding for space */
+        margin: 10px 0; /* a margin for spacing */
+        border: 1px solid #ccc; /* a light border */
+        border-radius: 4px; /* adds rounded corners */
+    }
+
+    /* the styling for the button */
+    input[type="submit"] {
+        background-color: #4CAF50; 
+        color: white; 
+        border: none; 
+        border-radius: 4px; /* adds rounded corners */
+        padding: 10px; /* padding for the space comfort */
+        cursor: pointer; /* Pointer cursor */
+    }
+
+    /* the hover effect for the button */
+    input[type="submit"]:hover {
+        background-color: #45a049; /* darker color when hovering */
+    }
+
+    /* the styling for the secret message */
+    .secret-message {
+        display: none; 
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #dff0d8; /* a light background */
+        border: 1px solid #d6e9c6; /* the border */
+        border-radius: 4px; /* this adds the rounded corners */
+    }
+</style>
+</head>
+<body>
+
+<h1>Welcome To Security! Please enter your credentials:</h1>
+
+<img id="memeImage" src="download (6).jfif">
+
+<form id="userForm">
+    <!-- input for first name -->
+    <input type="text" id="firstName" placeholder="First Name" required>
+
+    <!-- input for last name -->
+    <input type="text" id="lastName" placeholder="Last Name" required>
+
+    <!-- input for zip code -->
+    <input type="text" id="zipCode" placeholder="Zip Code (5 digits)" required>
+
+    <!-- the submit button -->
+    <input type="submit" value="Submit">
+</form>
+
+<!-- the secret secret message -->
+<div class="secret-message" id="secretMessage">
+     Congratulations! Here is your secret message: "You are spooky spooky!" 
+</div>
+
+<script>
+    // this is the scripts
+    document.getElementById('userForm').addEventListener('submit', function(event) {
+        // this prevents the default form submission
+        event.preventDefault();
+
+        // Gathers the values from the input 
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const zipCode = document.getElementById('zipCode').value.trim();
+
+        // combines the first and last name into a full name
+        const fullName = firstName + ' ' + lastName;
+
+        // this validates the full name length
+        if (fullName.length > 20) {
+            alert("Error: Full name cannot exceed 20 characters.");
+            return; // Exit if invalid
+        }
+
+        // this has to validate zip code, has to be 5 digits
+        const zipCodePattern = /^\d{5}$/;
+        if (!zipCodePattern.test(zipCode)) {
+            alert("Error: Zip code must be exactly 5 digits.");
+            return; // Exit if invalid
+        }
+
+        // all validations pass, show the secret message
+        document.getElementById('secretMessage').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
