@@ -12,7 +12,7 @@
     body {
         font-family: Arial, sans-serif;
         background-color: #84c6ff; /* light blue background */
-        color: #333; /* dark text color */
+        color: aliceblue; /*text color */
         margin: 0;
         padding: 20px;
     }
@@ -121,4 +121,106 @@
 </script>
 
 </body>
+</html>
+
+    <!-- Page name -->
+    <h1>Palindrome Checker</h1>
+
+    <!-- the content container -->
+    <div class="container">
+        <p>Enter a word to check if it's a palindrome!</p>
+
+        <!-- 1st batman image  -->
+        <div class="image-container">
+            <img src="we-all-really-did-a-number-of-things-with-michael-keatons-v0-da403w6h5swb1.jpg" alt="Palindrome Icon">
+        </div>
+
+        <!-- the input button to start checking -->
+        <input type="text" id="wordInput" placeholder="Enter a word" />
+        <button onclick="checkPalindrome()">Check</button>
+
+        <p id="resultMessage"></p>
+    </div>
+
+    <script>
+        // the function that checks if the word is a palidrome
+        function checkPalindrome() {
+            // the code that the word entered by the user
+            let word = document.getElementById('wordInput').value;
+
+            // takes spaces away and the string to lowercase for comparison
+            let cleanedWord = word.replace(/\s+/g, '').toLowerCase();
+
+            // cleaned word
+            let reversedWord = cleanedWord.split('').reverse().join('');
+
+            // this checks if the word is a palindrome
+            if (cleanedWord === reversedWord) {
+                document.getElementById('resultMessage').textContent = `"${word}" is a palindrome!`;
+            } else {
+                document.getElementById('resultMessage').textContent = `"${word}" is not a palindrome.`;
+            }
+
+            // input field for the next word
+            document.getElementById('wordInput').value = '';
+
+            let continueChecking = confirm("Do you want to check another word?");
+            if (!continueChecking) {
+                alert("Thank you for using the Palindrome Checker!");
+            }
+        }
+    </script>
+
+    <style>
+
+         /* Body background color and font settings */
+         body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header style */
+        h1 {
+            color: black;
+            margin-top: 30px;
+        }
+
+        /* styling the content container */
+        .container {
+            background-color: crimson;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        /* the style for the button */
+        button {
+            background-color: #2e8b57;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3cb371;
+        }
+
+        /* Styling for the pictures */
+        .image-container img {
+            max-width: 100px;
+            margin-top: 20px;
+        }
+    </style>
+
+
+</body>
+
 </html>
