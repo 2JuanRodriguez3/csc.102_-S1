@@ -12,7 +12,7 @@
     body {
         font-family: Arial, sans-serif;
         background-color: #84c6ff; /* light blue background */
-        color: aliceblue; /*text color */
+        color: rgb(18, 89, 151); /*text color */
         margin: 0;
         padding: 20px;
     }
@@ -40,7 +40,7 @@
     /* the styling for the button */
     input[type="submit"] {
         background-color: #4CAF50; 
-        color: white; 
+        color: rgb(177, 56, 56); 
         border: none; 
         border-radius: 4px; /* adds rounded corners */
         padding: 10px; /* padding for the space comfort */
@@ -57,7 +57,7 @@
         display: none; 
         margin-top: 20px;
         padding: 10px;
-        background-color: #dff0d8; /* a light background */
+        background-color: #000000; /* a light background */
         border: 1px solid #d6e9c6; /* the border */
         border-radius: 4px; /* this adds the rounded corners */
     }
@@ -200,7 +200,7 @@
         /* the style for the button */
         button {
             background-color: #2e8b57;
-            color: white;
+            color: rgb(236, 78, 78);
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -249,6 +249,143 @@
 
 
     </style>
+
+
+<head>
+    <!-- Juan Rodriguez November 25th, 2024 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together and All</title>
+    <style>
+        /* Styles the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5d4b79;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #be6c34;
+            color: rgb(84, 157, 218);
+            text-align: center;
+            padding: 20%px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #9fe6c8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #385a3a;
+        }
+
+        .message {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #81bdf1;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Name Game</h1>
+    <p>Type out your favorite animal to get a personalized cool message.</p>
+</header>
+
+<div class="container">
+    <label for="Animal">Enter your favorite animal:</label>
+    <input type="text" id="username" placeholder="Type your Animal">
+    <button onclick="displayMessage()">Submit</button>
+
+    <div id="message" class="message"></div>
+</div>
+
+<script>
+    // the function to validate input it will check if the animal is provided
+    function validateInput(name) {
+        if (!name || name.trim() === "") {
+            return false;  // Invalid input if it's empty
+        }
+        return true;  // Valid input
+    }
+
+    // Function to capitalize name
+    function capitalizeName(name) {
+        return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    }
+
+    // show the personalized message
+    function displayMessage() {
+        // the user input
+        const username = document.getElementById("username").value;
+        const messageDiv = document.getElementById("message");
+
+        // logic (if/else)
+        if (!validateInput(username)) {
+            messageDiv.style.display = "block";
+            messageDiv.innerHTML = "Please enter a valid name!";
+            messageDiv.classList.add("error");
+            messageDiv.classList.remove("success");
+            return;
+        }
+
+        // capitilizes the first letter
+        const formattedName = capitalizeName(username);
+
+        // this loops the message
+        let greeting = "";
+        for (let i = 0; i < formattedName.length; i++) {
+            greeting += `Awesome, ${formattedName.charAt(i)}! `;
+        }
+
+        // this shows the success message
+        messageDiv.style.display = "block";
+        messageDiv.innerHTML = greeting;
+        messageDiv.classList.add("success");
+        messageDiv.classList.remove("error");
+    }
+</script>
+
 
 </body>
 
