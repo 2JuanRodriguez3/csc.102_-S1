@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To The User Validation Page</title>
+    <link rel="stylesheet" href="Final.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <h1>Input & Validation</h1>
+
+         <a href="Final.html">Back to Landing Page</a>
+        </header>
+</div>
+    <body>
+        <h2>Type In Your Email To Validate Your Info</h2>
+        <input type="email" id="emailInput" placeholder="Enter your email">
+        <button onclick="validateEmail()">Validate</button>
+        <p id="emailResult"></p>
+    </body>
+    <footer> See If Your Email Is Valid Above</footer>
+    <script>
+        function validateEmail() {
+            const email = document.getElementById('emailInput').value;
+            const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const resultText = pattern.test(email) ? "Valid Email Address Congrats!" : "Invalid Email Address Wer're Sorry.";
+            document.getElementById('emailResult').textContent = resultText;
+        }
+    </script>
+</body>
+</html>

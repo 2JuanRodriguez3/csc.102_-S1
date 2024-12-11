@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome To The Palindrome Checker Page</h1>
+        <nav>
+            <ul>
+                <li><a href="Final.html">Back to Landing</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <!--This is where the text Content -->
+        <h2>Enter a word to check if it's a palindrome</h2>
+        <!-- the input button to start checking -->
+        <input type="text" id="wordInput" placeholder="Enter a word" />
+        <button onclick="checkPalindrome()">Check</button>
+
+        <p id="resultMessage"></p>
+    </div>
+    <script>
+        // the function that checks if the word is a palidrome
+        function checkPalindrome() {
+            // the code that the word entered by the user
+            let word = document.getElementById('wordInput').value;
+
+            // takes spaces away and the string to lowercase for comparison
+            let cleanedWord = word.replace(/\s+/g, '').toLowerCase();
+
+            // cleaned word
+            let reversedWord = cleanedWord.split('').reverse().join('');
+
+            // this checks if the word is a palindrome
+            if (cleanedWord === reversedWord) {
+                document.getElementById('resultMessage').textContent = `"${word}" is a palindrome!`;
+            } else {
+                document.getElementById('resultMessage').textContent = `"${word}" is not a palindrome.`;
+            }
+
+            // input field for the next word
+            document.getElementById('wordInput').value = '';
+
+            let continueChecking = confirm("Do you want to check another word?");
+            if (!continueChecking) {
+                alert("Thank you for using the Palindrome Checker!");
+            }
+        }
+    </script>
+    <footer>
+        <p>Check if the words you type are palindromes!</p>
+    </footer>
+</body>
+</html>

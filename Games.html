@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome To The Game Page</h1>
+        <nav>
+            <ul>
+                <li><a href="Final.html">Back to Landing</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2 id="heading">Dice Challange Game</h2>
+        <!-- preforms a click action where you can change the text -->
+        <table>
+            <tr>
+                <td class="game name">User 1</td>
+                <td class="game name">User 2 </td>
+            </tr>
+            <tr>
+                <!-- Allows the image to appear -->
+                <td class="game" id="dice1"><img src="dice1.png"></td>
+                <td class="game" id="dice2"><img src="dice1.png"></td>
+            </tr>
+    </table>
+    
+    
+    <input class="btn" type="button" value="Play" id="playBtn" style="margin-left: 30%;" onclick="play()">
+    
+    <input class="btn" type="button" value="Edit Name" onclick="edit()">
+    
+    <!--put the external javascript file here-->
+    <script src="code.js"></script>
+
+</body>
+</html>
